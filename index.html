@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ana Gomes | Lash & Brow Design</title>
+<meta name="description" content="Extensão de cílios, lash lifting e design de sobrancelhas. Agende seu horário online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fbf6ed;--areia:#f1e5d1;--cho:#3a2217;--car:#7a4e2d;--gold:#c9a24b;--ouro:#8f6a1c;--esp:#24130c;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);font-weight:400;background:var(--ivory);color:var(--cho);line-height:1.7;font-size:1.05rem}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--car);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:48px;max-width:1200px;margin:0 auto;padding:40px 24px;
+background:radial-gradient(60% 50% at 85% 40%,rgba(201,162,75,.18),transparent 70%)}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(3.2rem,7.5vw,5.8rem);line-height:.95;color:var(--cho)}
+.hero .sub{font-family:var(--serif);font-weight:600;font-style:italic;font-size:1.7rem;color:var(--ouro);margin:14px 0 22px}
+.hero p{max-width:34ch;color:var(--car);margin-bottom:32px;font-size:1.12rem}
+.btn{display:inline-block;background:var(--cho);color:var(--areia);padding:15px 36px;border:0;border-radius:2px;font:500 1rem var(--sans);letter-spacing:.03em;text-decoration:none;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--car)}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+
+.palco{width:100%}
+.stage{position:relative;aspect-ratio:3/4;width:100%;max-width:min(100%,calc(68vh * .75));margin:0 auto 36px;filter:drop-shadow(0 18px 28px rgba(58,34,23,.28))}
+.stage::before{content:"";position:absolute;inset:16px -16px -16px 16px;border:1px solid var(--gold);z-index:-1}
+.foto{position:absolute;inset:0;overflow:hidden;background:linear-gradient(135deg,#c9a24b,#7a4e2d 60%,#3a2217);clip-path:inset(0 0 100% 0);animation:revela 1.6s cubic-bezier(.65,0,.2,1) .15s forwards}
+.foto img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform-origin:50% 26%;animation:kb 22s ease-in-out 0s infinite alternate}
+@keyframes revela{to{clip-path:inset(0)}}
+@keyframes kb{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.17) translate(-1.5%,1.5%)}}
+.leg{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px}
+.leg a{text-decoration:none;border:1px solid var(--car);color:var(--cho);padding:9px 18px;border-radius:40px;font-size:.98rem;font-weight:500;transition:.2s}
+.leg a.on,.leg a:hover{background:var(--cho);color:var(--areia);border-color:var(--cho)}
+
+/* SERVIÇOS */
+.servicos{padding:100px 0}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.05;margin-bottom:14px}
+.servicos .intro,.agenda .intro{max-width:54ch;margin-bottom:48px;color:var(--car);font-size:1.12rem}
+.grupo{font-family:var(--serif);font-weight:600;font-style:italic;font-size:2rem;color:var(--ouro);margin:52px 0 12px}
+.item{display:grid;grid-template-columns:250px 1fr auto;gap:32px;align-items:center;padding:28px 0;border-top:1px solid rgba(201,162,75,.7);scroll-margin-top:24px}
+.item:last-child{border-bottom:1px solid rgba(201,162,75,.7)}
+.arte{background:var(--areia);border-radius:4px;padding:8px}
+.arte{aspect-ratio:5/3;display:flex;align-items:center}.arte svg{display:block;width:100%;height:auto}
+.item h3{font-family:var(--serif);font-weight:700;font-size:1.9rem;line-height:1.15;margin-bottom:6px}
+.item small{display:inline-block;margin-bottom:10px;color:var(--ouro);font-weight:500;font-size:.9rem}
+.item p{color:#4d3225;max-width:52ch}
+.item button{background:none;border:1px solid var(--cho);color:var(--cho);padding:11px 24px;font:500 .95rem var(--sans);cursor:pointer;border-radius:2px;transition:.2s}
+.item button:hover{background:var(--cho);color:var(--areia)}
+
+/* AGENDA */
+.agenda{padding:100px 0;background:var(--areia)}
+.passo{margin-bottom:34px}
+.passo h3{font-family:var(--serif);font-weight:700;font-size:1.6rem;margin-bottom:14px}
+select,input{width:100%;max-width:460px;background:#fff;border:1px solid var(--car);color:var(--cho);padding:14px 16px;font:400 1rem var(--sans);border-radius:2px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:#fff;border:1px solid rgba(122,78,45,.6);color:var(--cho);padding:10px 16px;font:400 .98rem var(--sans);border-radius:2px;cursor:pointer;text-align:center;line-height:1.3;transition:.2s}
+.chip:hover{border-color:var(--cho)}
+.chip[aria-pressed=true]{background:var(--cho);color:var(--areia);border-color:var(--cho)}
+.chip b{display:block;font-weight:500;font-size:1.2rem}
+.vazio{color:var(--car)}
+.resumo{margin:6px 0 22px;font-weight:500;min-height:1.7em}
+.aviso{margin-top:14px;font-size:.9rem;color:var(--car);max-width:52ch}
+
+footer{padding:56px 24px;text-align:center;background:var(--cho);color:var(--areia)}
+footer .nome{font-family:var(--serif);font-weight:700;font-size:2rem}
+footer a{color:var(--gold);text-decoration:none;margin:0 12px}
+footer a:hover{text-decoration:underline}
+
+@media(max-width:860px){
+.hero{grid-template-columns:1fr;min-height:auto;padding-top:48px;gap:36px}
+.stage{max-width:100%}.stage::before{inset:12px -4px -12px 12px}
+.item{grid-template-columns:1fr;gap:16px}
+.arte{max-width:300px}
+.item button{justify-self:start}
+}
+@media(prefers-reduced-motion:reduce){.foto{animation:none;clip-path:none}.foto img{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div>
+    <h1>Ana Gomes</h1>
+    <div class="sub">Lash & Brow Design</div>
+    <p>Olhar marcante, com leveza. Cílios e sobrancelhas desenhados para o seu rosto.</p>
+    <a class="btn" href="#agenda">Agendar horário</a>
+  </div>
+  <div class="palco">
+    <div class="stage"><div class="foto"><img src="capasite.jpg" alt="Ana Gomes, lash e brow designer" fetchpriority="high"></div></div>
+    <nav class="leg" id="leg" aria-label="Especialidades">
+      <a href="#s-0">Extensão de cílios</a>
+      <a href="#s-1">Volume russo</a>
+      <a href="#s-3">Lash lifting</a>
+      <a href="#s-4">Design de sobrancelhas</a>
+      <a href="#s-6">Brow lamination</a>
+    </nav>
+  </div>
+</header>
+
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <h2>Especialidades</h2>
+    <p class="intro">Em dúvida sobre qual procedimento escolher? Veja o desenho de cada resultado e para quem ele é indicado.</p>
+    <div id="lista"></div>
+  </div>
+</section>
+
+<section class="agenda" id="agenda">
+  <div class="wrap">
+    <h2>Agende seu horário</h2>
+    <p class="intro">Escolha o procedimento, o dia e o horário. Seu pedido chega pronto no WhatsApp da Ana, que confirma com você.</p>
+
+    <div class="passo"><h3>Procedimento</h3>
+      <select id="servico" aria-label="Procedimento"></select></div>
+    <div class="passo"><h3>Dia</h3><div class="chips" id="dias"></div></div>
+    <div class="passo"><h3>Horário</h3><div class="chips" id="horas"><span class="vazio">Escolha um dia para ver os horários.</span></div></div>
+    <div class="passo"><h3>Seus dados</h3>
+      <input id="nome" placeholder="Seu nome" autocomplete="name" aria-label="Seu nome"></div>
+
+    <div class="resumo" id="resumo" aria-live="polite"></div>
+    <button class="btn" id="enviar" disabled>Enviar pedido pelo WhatsApp</button>
+    <p class="aviso">O horário só fica reservado depois que a Ana confirmar sua mensagem.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="nome">Ana Gomes</div>
+  <p style="margin:6px 0 18px">Lash & Brow Design</p>
+  <a href="https://instagram.com/anagomessobrancelhas" target="_blank" rel="noopener">Instagram</a>
+  <a id="zap" href="#" target="_blank" rel="noopener">WhatsApp</a>
+</footer>
+
+<script>
+/* ===== CONFIGURAÇÃO — edite aqui ===== */
+const CONFIG = {
+  whatsapp: "5564993375744",          // DDI + DDD + número, só dígitos
+  diasAdiante: 21,                    // quantos dias à frente aparecem (a janela anda sozinha a cada dia)
+  // horários por dia da semana (0=domingo ... 6=sábado). null = fechado
+  horarios: {
+    0: null,
+    1: ["09:00","10:30","13:00","14:30","16:00","17:30"],
+    2: ["09:00","10:30","13:00","14:30","16:00","17:30"],
+    3: ["09:00","10:30","13:00","14:30","16:00","17:30"],
+    4: ["09:00","10:30","13:00","14:30","16:00","17:30"],
+    5: ["09:00","10:30","13:00","14:30","16:00","17:30"],
+    6: ["08:00","09:30","11:00","13:00"]
+  },
+  bloqueados: [],                     // dias sem atendimento, ex: ["2026-12-25"]
+  ocupados: {}                        // horários já reservados, ex: {"2026-11-03":["14:30","16:00"]}
+};
+
+const SERVICOS = [
+ {g:"Cílios", n:"Extensão fio a fio", t:"2h a 2h30", a:"fio",
+  d:"Um fio sintético é colado em cada cílio natural, sem encostar na pele. O resultado é um olhar definido e natural, como se você estivesse de rímel. Ideal para quem quer discrição."},
+ {g:"Cílios", n:"Volume russo", t:"2h30 a 3h", a:"russo",
+  d:"Pequenos leques de 3 a 6 fios ultrafinos, montados à mão, são aplicados em cada cílio. Cria um olhar denso, cheio e sofisticado, sem pesar. Ideal para quem quer mais volume."},
+ {g:"Cílios", n:"Volume brasileiro", t:"2h30", a:"brasileiro",
+  d:"Cada cílio recebe um fio em formato de “Y”, que dá preenchimento e volume moderado. Fica entre o fio a fio e o volume russo."},
+ {g:"Cílios", n:"Lash lifting", t:"1h", a:"lifting",
+  d:"Eleva e curva seus próprios cílios, sem extensão. O olhar fica aberto e os cílios parecem mais longos. Dura em média de 6 a 8 semanas e pode incluir tintura."},
+ {g:"Sobrancelhas", n:"Design de sobrancelhas", t:"40 min", a:"design",
+  d:"A Ana mede e mapeia a sobrancelha de acordo com o formato do seu rosto (início, arco e final), depois remove os fios que sobram. Resultado: simetria e harmonia no olhar."},
+ {g:"Sobrancelhas", n:"Design com henna", t:"1h", a:"henna",
+  d:"Design de sobrancelhas com henna aplicada sobre a pele e os fios. Preenche falhas, define o contorno e deixa o efeito de sobrancelha preenchida por cerca de 15 dias."},
+ {g:"Sobrancelhas", n:"Brow lamination", t:"1h", a:"lamination",
+  d:"Alinha os fios para cima e os fixa no lugar, deixando a sobrancelha volumosa e penteada. Dura de 4 a 6 semanas. Boa para fios rebeldes ou com falhas."}
+];
+
+/* ===== ILUSTRAÇÕES (esboços em SVG) ===== */
+const COR="#3a2217",OURO="#c9a24b";
+const f=n=>n.toFixed(1);
+const rot=(v,g)=>{const a=g*Math.PI/180,c=Math.cos(a),s=Math.sin(a);return[v[0]*c-v[1]*s,v[0]*s+v[1]*c]};
+function pLid(t){const a=[30,72],c=[100,18],b=[170,72],u=1-t;return[u*u*a[0]+2*u*t*c[0]+t*t*b[0],u*u*a[1]+2*u*t*c[1]+t*t*b[1]]}
+function normal(p){const x=p[0]-100,y=p[1]-92,l=Math.hypot(x,y);return[x/l,y/l]}
+function cilio(p,n,len,curl,w,col,op){
+  const e=[p[0]+n[0]*len,p[1]+n[1]*len-curl],m=[p[0]+n[0]*len*.55,p[1]+n[1]*len*.55];
+  return `<path d="M${f(p[0])} ${f(p[1])}Q${f(m[0])} ${f(m[1])} ${f(e[0])} ${f(e[1])}" fill="none" stroke="${col||COR}" stroke-width="${w}" stroke-linecap="round" opacity="${op||1}"/>`}
+function olho(tipo){
+  let s=`<path d="M30 72Q100 18 170 72Q100 104 30 72Z" fill="#fff" stroke="${COR}" stroke-width="2.2" stroke-linejoin="round"/>
+  <circle cx="100" cy="66" r="15" fill="#7a4e2d"/><circle cx="100" cy="66" r="6" fill="#24130c"/><circle cx="105" cy="61" r="3" fill="#fff"/>
+  <path d="M30 72Q100 18 170 72" fill="none" stroke="${COR}" stroke-width="3" stroke-linecap="round"/>`;
+  const N=(q,a,b)=>Array.from({length:q},(_,i)=>a+(b-a)*i/(q-1));
+  if(tipo==="fio")N(15,.07,.93).forEach(t=>{const p=pLid(t);s+=cilio(p,normal(p),15+9*t,5,1.8)});
+  if(tipo==="russo")N(10,.08,.92).forEach(t=>{const p=pLid(t),n=normal(p),l=22+7*t;[-13,0,13].forEach(g=>s+=cilio(p,rot(n,g),l,6,1.2))});
+  if(tipo==="brasileiro")N(11,.08,.92).forEach(t=>{const p=pLid(t),n=normal(p),l=20+5*t,m=[p[0]+n[0]*l*.4,p[1]+n[1]*l*.4];
+    s+=`<path d="M${f(p[0])} ${f(p[1])}L${f(m[0])} ${f(m[1])}" stroke="${COR}" stroke-width="1.6" stroke-linecap="round"/>`;[-14,14].forEach(g=>s+=cilio(m,rot(n,g),l*.7,5,1.5))});
+  if(tipo==="lifting"){N(13,.07,.93).forEach(t=>{const p=pLid(t),n=normal(p);s+=cilio(p,n,16,0,1.2,OURO,.55).replace('/>',' stroke-dasharray="2 3"/>')});
+    N(13,.07,.93).forEach(t=>{const p=pLid(t);s+=cilio(p,normal(p),17,13,1.8)});
+    s+=`<path d="M176 88Q188 70 180 50M176 54l4-6 5 5" fill="none" stroke="${OURO}" stroke-width="2" stroke-linecap="round"/>`}
+  return s}
+/* sobrancelhas */
+const cub=(t)=>{const P=[[30,78],[70,46],[130,36],[176,66]],u=1-t;return[0,1].map(k=>u*u*u*P[0][k]+3*u*u*t*P[1][k]+3*u*t*t*P[2][k]+t*t*t*P[3][k])};
+function tg(t){const a=cub(Math.max(t-.01,0)),b=cub(Math.min(t+.01,1)),x=b[0]-a[0],y=b[1]-a[1],l=Math.hypot(x,y);return[x/l,y/l]}
+const larg=t=>12*(1-.62*t)*(t<.15?.5+t*3.3:1);
+const pr=i=>{const x=Math.sin(i*12.9898)*43758.5453;return x-Math.floor(x)};
+function sobr(tipo){
+  const up=[],lo=[];for(let i=0;i<=24;i++){const t=i/24,c=cub(t),g=tg(t),n=[g[1],-g[0]],w=larg(t);up.push([c[0]+n[0]*w*.9,c[1]+n[1]*w*.9]);lo.push([c[0]-n[0]*w*.9,c[1]-n[1]*w*.9])}
+  const poly=up.concat(lo.reverse()).map((p,i)=>(i?'L':'M')+f(p[0])+' '+f(p[1])).join('')+'Z';
+  let s=`<path d="M60 104Q105 86 150 104Q105 120 60 104Z" fill="#fff" stroke="${COR}" stroke-width="1.6" opacity=".9"/><circle cx="105" cy="104" r="6" fill="#7a4e2d"/>`;
+  if(tipo==="henna")s+=`<path d="${poly}" fill="#7a4e2d" opacity=".45"/>`;
+  if(tipo==="design")s+=`<path d="${poly}" fill="none" stroke="${OURO}" stroke-width="2" stroke-dasharray="5 4"/>`;
+  const hs=tipo==="lamination"?[-.2,-.6]:[.7,-.35];
+  for(let i=0;i<46;i++){const t=i/45,c=cub(t),g=tg(t),n=[g[1],-g[0]],w=larg(t),k=(pr(i)-.5)*1.5*w,
+    d=tipo==="lamination"?[n[0]*1+g[0]*.12,n[1]*1+g[1]*.12]:[g[0]*.9+n[0]*.45,g[1]*.9+n[1]*.45],l=Math.hypot(d[0],d[1]),len=(tipo==="lamination"?15:11)+pr(i+7)*4,
+    a=[c[0]+n[0]*k,c[1]+n[1]*k],e=[a[0]+d[0]/l*len,a[1]+d[1]/l*len];
+    s+=`<path d="M${f(a[0])} ${f(a[1])}L${f(e[0])} ${f(e[1])}" stroke="${COR}" stroke-width="1.7" stroke-linecap="round"/>`}
+  if(tipo==="design"){[[0,'A'],[.6,'B'],[1,'C']].forEach(([t,l])=>{const c=cub(t);s+=`<path d="M${f(c[0])} 14V${f(c[1])}" stroke="${OURO}" stroke-width="1.2" stroke-dasharray="2 3"/><circle cx="${f(c[0])}" cy="${f(c[1])}" r="3.4" fill="${OURO}"/>`})}
+  if(tipo==="lamination")s+=`<path d="M186 62V30M180 38l6-8 6 8" fill="none" stroke="${OURO}" stroke-width="2" stroke-linecap="round"/>`;
+  return s}
+const desenho=a=>`<svg viewBox="${["design","henna","lamination"].includes(a)?"0 0 200 120":"8 2 184 100"}" role="img" aria-label="Esboço do resultado">${["design","henna","lamination"].includes(a)?sobr(a):olho(a)}</svg>`;
+
+/* ===== SERVIÇOS ===== */
+const lista=document.getElementById('lista');
+let gAtual="";
+SERVICOS.forEach((s,i)=>{
+  if(s.g!==gAtual){gAtual=s.g;const h=document.createElement('div');h.className='grupo';h.textContent=s.g;lista.appendChild(h)}
+  const el=document.createElement('div');el.className='item';el.id='s-'+i;
+  el.innerHTML=`<div class="arte">${desenho(s.a)}</div><div><h3>${s.n}</h3><small>Duração: ${s.t}</small><p>${s.d}</p></div><button data-i="${i}">Agendar</button>`;
+  lista.appendChild(el)});
+lista.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-i]');if(!b)return;
+  sel.value=b.dataset.i;estado.servico=+b.dataset.i;atualiza();
+  document.getElementById('agenda').scrollIntoView()});
+
+/* ===== AGENDA ===== */
+const sel=document.getElementById('servico'),diasEl=document.getElementById('dias'),horasEl=document.getElementById('horas'),
+ nome=document.getElementById('nome'),resumo=document.getElementById('resumo'),enviar=document.getElementById('enviar');
+const estado={servico:null,data:null,hora:null};
+sel.innerHTML='<option value="">Escolha um procedimento</option>'+SERVICOS.map((s,i)=>`<option value="${i}">${s.n}</option>`).join('');
+sel.onchange=()=>{estado.servico=sel.value===''?null:+sel.value;atualiza()};
+nome.oninput=atualiza;
+
+const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const fmtDia=d=>d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
+
+function desenhaDias(){
+  diasEl.innerHTML='';
+  const hoje=new Date();hoje.setHours(0,0,0,0);
+  for(let i=0;i<CONFIG.diasAdiante;i++){
+    const d=new Date(hoje);d.setDate(hoje.getDate()+i);
+    const k=iso(d);
+    if(!CONFIG.horarios[d.getDay()]||CONFIG.bloqueados.includes(k)||livres(d).length===0)continue;
+    const b=document.createElement('button');b.className='chip';b.type='button';b.setAttribute('aria-pressed','false');
+    b.innerHTML=`${d.toLocaleDateString('pt-BR',{weekday:'short'}).replace('.','')}<b>${d.getDate()}</b>${d.toLocaleDateString('pt-BR',{month:'short'}).replace('.','')}`;
+    b.onclick=()=>{estado.data=k;estado.hora=null;[...diasEl.children].forEach(c=>c.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');desenhaHoras(d);atualiza()};
+    diasEl.appendChild(b)}
+  if(!diasEl.children.length)diasEl.innerHTML='<span class="vazio">Sem horários disponíveis no momento. Chame a Ana no WhatsApp.</span>'}
+function livres(d){
+  const k=iso(d),agora=new Date(),oc=CONFIG.ocupados[k]||[];
+  return (CONFIG.horarios[d.getDay()]||[]).filter(h=>{
+    if(oc.includes(h))return false;
+    if(k===iso(agora)){const [H,M]=h.split(':');const t=new Date(d);t.setHours(+H,+M,0,0);return t>agora}
+    return true})}
+function desenhaHoras(d){
+  horasEl.innerHTML='';
+  livres(d).forEach(h=>{
+    const b=document.createElement('button');b.className='chip';b.type='button';b.setAttribute('aria-pressed','false');b.textContent=h;
+    b.onclick=()=>{estado.hora=h;[...horasEl.children].forEach(c=>c.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');atualiza()};
+    horasEl.appendChild(b)})}
+function atualiza(){
+  enviar.disabled=!(estado.servico!==null&&estado.data&&estado.hora&&nome.value.trim().length>1);
+  if(estado.servico!==null&&estado.data&&estado.hora){
+    const [y,m,d]=estado.data.split('-');
+    resumo.textContent=`${SERVICOS[estado.servico].n}, ${fmtDia(new Date(y,m-1,d))}, às ${estado.hora}`;
+  }else resumo.textContent=''}
+enviar.onclick=()=>{
+  const [y,m,d]=estado.data.split('-');
+  const msg=`Olá, Ana! Aqui é ${nome.value.trim()}. Quero agendar ${SERVICOS[estado.servico].n} para ${fmtDia(new Date(y,m-1,d))}, às ${estado.hora}. Esse horário está disponível?`;
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,'_blank')};
+document.getElementById('zap').href=`https://wa.me/${CONFIG.whatsapp}`;
+desenhaDias();
+</script>
+</body>
+</html>
